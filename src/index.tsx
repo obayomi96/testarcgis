@@ -7,15 +7,17 @@ import { defineCustomElements as defineMapElements } from "@arcgis/map-component
 
 defineMapElements(window, { resourcesUrl: "https://js.arcgis.com/map-components/4.30/assets" });
 
+const APP_ID = import.meta.env.VITE_APP_ID;
+
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <React.StrictMode>
     <ArcgisMap
       // This is the test item id, the api ket i created from the account isnt working yet, so I'll check the previledges on the free account if thats the issue
-      itemId="d5dda743788a4b0688fe48f43ae7beb9"
+      itemId={APP_ID}
       // center={}
       onArcgisViewReadyChange={(event: any) => {
-        console.log("MapView ready", event);
+        console.log("Map", event);
       }}
     >
       <ArcgisSearch position="top-left"></ArcgisSearch>
